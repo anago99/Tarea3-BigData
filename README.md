@@ -14,6 +14,13 @@ https://www.datos.gov.co/resource/gt2j-8ykr.csv?$limit=50000
 - Python
 - Hadoop HDFS
 
+## Descripción de la solución
+Se desarrolló un proceso de análisis de datos utilizando Apache Spark, donde:
+1. Se cargan los datos desde el dataset.
+2. Se realiza limpieza y transformación de la información.
+3. Se ejecutan consultas para obtener métricas clave.
+4. Se generan resultados agregados para su análisis.
+   
 ## Ejecución
 python3 batch_covid.py
 
