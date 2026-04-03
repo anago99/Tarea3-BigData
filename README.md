@@ -1,4 +1,4 @@
-# Tarea2-BigData
+# Tarea3-BigData
 Código desarrollado para en análisis en batch (Spark).
 # Análisis de datos COVID-19 con Spark
 
