@@ -7,6 +7,7 @@ Analizar los casos positivos de COVID-19 en Colombia para identificar patrones c
 
 ## Dataset
 Datos abiertos de Colombia (50,000 registros)
+https://www.datos.gov.co/resource/gt2j-8ykr.csv?$limit=50000
 
 ## Tecnologías
 - Apache Spark
