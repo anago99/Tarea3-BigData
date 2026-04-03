@@ -1,0 +1,46 @@
+from pyspark.sql import SparkSession, functions as F
+
+# Crear sesión Spark
+spark = SparkSession.builder.appName("AnalisisCOVID").getOrCreate()
+
+# Ruta en HDFS
+file_path = 'hdfs://localhost:9000/covid/covid.csv'
+
+# Cargar dataset
+df = spark.read.format('csv') \
+    .option('header','true') \
+    .option('inferSchema','true') \
+    .load(file_path)
+
+print("\n=== ESQUEMA ===")
+df.printSchema()
+
+print("\n=== PRIMEROS DATOS ===")
+df.show(5)
+
+# 🔹 LIMPIEZA
+df = df.dropna()
+
+print("\n=== TOTAL REGISTROS ===")
+print(df.count())
+
+# 🔹 ANÁLISIS
+
+print("\n=== CASOS POR SEXO ===")
+df.groupBy("sexo").count().show()
+
+print("\n=== TOP 10 DEPARTAMENTOS ===")
+df.groupBy("departamento_nom") \
+  .count() \
+  .orderBy("count", ascending=False) \
+  .show(10)
+
+print("\n=== PROMEDIO DE EDAD ===")
+df.select(F.avg("edad")).show()
+
+print("\n=== CASOS POR ESTADO ===")
+df.groupBy("estado").count().show()
+
+print("\n=== TIPO DE CONTAGIO ===")
+df.groupBy("fuente_tipo_contagio").count().show()
+input("Presiona Enter para finalizar...")
