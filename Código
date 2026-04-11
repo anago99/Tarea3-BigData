@@ -19,7 +19,7 @@ print("\n=== PRIMEROS DATOS ===")
 df.show(5)
 
 # 🔹 LIMPIEZA
-df = df.dropna()
+df = df.dropna(subset=["sexo", "edad", "estado"])
 
 print("\n=== TOTAL REGISTROS ===")
 print(df.count())
