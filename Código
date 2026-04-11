@@ -24,6 +24,9 @@ df = df.dropna(subset=["sexo", "edad", "estado"])
 print("\n=== TOTAL REGISTROS ===")
 print(df.count())
 
+# Estandarizar texto (a mayúsculas)
+df = df.withColumn("estado", F.upper(F.col("estado")))
+
 # 🔹 ANÁLISIS
 
 print("\n=== CASOS POR SEXO ===")
